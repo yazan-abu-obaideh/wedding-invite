@@ -1,0 +1,1705 @@
+/* ============================================================
+   AYAH & YAZAN — WEDDING INVITATION
+   10 Design Themes — Plain HTML, CSS, JavaScript
+   ============================================================ */
+
+/* ----- CSS Reset & Base ----- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --transition-speed: 0.5s;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  min-height: 100vh;
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.7;
+  transition: background var(--transition-speed) ease, color var(--transition-speed) ease;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ----- Shared Section Styles ----- */
+section {
+  padding: 4rem 0;
+  position: relative;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+
+.section-label {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.85rem;
+  font-weight: 300;
+}
+
+/* ----- Hero Shared ----- */
+.hero {
+  text-align: center;
+  padding: 5rem 0 3rem;
+  position: relative;
+}
+
+.hero-pre {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.1em;
+  opacity: 0.8;
+}
+
+.hero-names {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.name-ampersand {
+  font-style: italic;
+}
+
+.hero-invite {
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 2rem;
+  opacity: 0.8;
+}
+
+.hero-date {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.date-day {
+  font-weight: 700;
+  line-height: 1;
+}
+
+.date-month, .date-year {
+  letter-spacing: 0.1em;
+}
+
+.hero-ornament {
+  margin: 1.5rem auto;
+  width: 120px;
+  height: 2px;
+  opacity: 0.4;
+}
+
+/* ----- Countdown Shared ----- */
+.countdown-section {
+  text-align: center;
+}
+
+.countdown-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 80px;
+}
+
+.countdown-number {
+  font-weight: 700;
+  line-height: 1;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: inline-block;
+}
+
+.countdown-label {
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.7rem;
+}
+
+/* ----- Story Shared ----- */
+.story-content {
+  max-width: 650px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.story-content p {
+  margin-bottom: 1rem;
+}
+
+/* ----- Details Shared ----- */
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.detail-card {
+  text-align: center;
+  padding: 2rem;
+  border-radius: 4px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.detail-card:hover {
+  transform: translateY(-4px);
+}
+
+.detail-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.detail-card h3 {
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+.detail-time {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.detail-location {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.detail-address {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  line-height: 1.5;
+}
+
+/* ----- Gallery Shared ----- */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.gallery-placeholder {
+  aspect-ratio: 4 / 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  opacity: 0.5;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.gallery-placeholder:hover {
+  transform: scale(1.03);
+  opacity: 0.8;
+}
+
+/* ----- RSVP Shared ----- */
+.rsvp-section {
+  text-align: center;
+}
+
+.rsvp-text {
+  margin-bottom: 1.5rem;
+  opacity: 0.8;
+}
+
+.rsvp-button {
+  display: inline-block;
+  padding: 0.85rem 2.5rem;
+  border-radius: 2px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* ----- Footer Shared ----- */
+.site-footer {
+  text-align: center;
+  padding: 3rem 0 2rem;
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+.footer-date { font-size: 0.8rem; opacity: 0.6; margin-top: 0.25rem; }
+
+/* ============================================================
+   NAVIGATION SYSTEM
+   ============================================================ */
+
+.nav-toggle {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1000;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+body[data-theme="design4"] .nav-toggle,
+body[data-theme="design6"] .nav-toggle,
+body[data-theme="design9"] .nav-toggle {
+  background: #fff;
+}
+
+body[data-theme="design4"] .nav-toggle span,
+body[data-theme="design6"] .nav-toggle span,
+body[data-theme="design9"] .nav-toggle span {
+  background: #111;
+}
+
+body:not([data-theme="design4"]):not([data-theme="design6"]):not([data-theme="design9"]) .nav-toggle {
+  background: #333;
+}
+
+body:not([data-theme="design4"]):not([data-theme="design6"]):not([data-theme="design9"]) .nav-toggle span {
+  background: #fff;
+}
+
+.design-nav {
+  position: fixed;
+  top: 0;
+  right: -320px;
+  width: 300px;
+  height: 100vh;
+  z-index: 999;
+  padding: 2rem;
+  overflow-y: auto;
+  transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: #1a1a1a;
+  color: #ccc;
+  box-shadow: -5px 0 30px rgba(0,0,0,0.3);
+}
+
+.design-nav.open { right: 0; }
+
+.nav-header { margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+
+.nav-header h3 { color: #fff; font-weight: 400; font-size: 1.1rem; }
+
+.nav-subtitle { font-size: 0.75rem; opacity: 0.5; text-transform: uppercase; letter-spacing: 0.1em; }
+
+.design-nav ul { list-style: none; }
+
+.design-nav li { margin-bottom: 2px; }
+
+.design-nav a {
+  display: block;
+  padding: 0.7rem 0;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  position: relative;
+}
+
+.design-nav a::after {
+  content: attr(data-number);
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.7rem;
+  opacity: 0.3;
+}
+
+.design-nav a:hover, .design-nav a.active {
+  color: #fff;
+  padding-left: 0.5rem;
+}
+
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.nav-overlay.show { opacity: 1; pointer-events: auto; }
+
+/* ----- Design Indicator ----- */
+.design-indicator {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+  transition: all var(--transition-speed) ease;
+  pointer-events: none;
+}
+
+.design-number {
+  font-weight: 600;
+}
+
+/* ============================================================
+   THEME 1 — CLASSIC GOLD
+   Cream background, gold accents, Playfair Display, ornate
+   ============================================================ */
+[data-theme="design1"] {
+  --bg: #FFF8EC;
+  --text: #3D2E1C;
+  --gold: #C8A84E;
+  --gold-light: #E8D5A3;
+  --card-bg: #FFFDF8;
+  --accent: #B8942E;
+  background-color: var(--bg);
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  color: var(--text);
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+}
+
+[data-theme="design1"] .design-indicator {
+  background: var(--gold-light);
+  color: var(--text);
+}
+
+[data-theme="design1"] .hero-names {
+  font-family: 'Playfair Display', 'Cormorant Garamond', serif;
+  font-size: 4rem;
+  font-weight: 400;
+  color: var(--gold);
+  letter-spacing: 0.02em;
+}
+
+[data-theme="design1"] .name-ampersand { color: var(--accent); font-size: 0.7em; }
+
+[data-theme="design1"] .date-day {
+  font-family: 'Playfair Display', serif;
+  font-size: 5rem;
+  color: var(--gold);
+}
+
+[data-theme="design1"] .date-month, [data-theme="design1"] .date-year {
+  font-size: 1.5rem;
+  color: var(--accent);
+}
+
+[data-theme="design1"] .hero-ornament {
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  height: 1px;
+  width: 180px;
+}
+
+[data-theme="design1"] .section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  color: var(--accent);
+}
+
+[data-theme="design1"] .section-label {
+  color: var(--gold);
+}
+
+[data-theme="design1"] .countdown-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  color: var(--gold);
+}
+
+[data-theme="design1"] .detail-card {
+  background: var(--card-bg);
+  border: 1px solid var(--gold-light);
+  box-shadow: 0 2px 20px rgba(200,168,78,0.1);
+}
+
+[data-theme="design1"] .gallery-placeholder {
+  background: var(--card-bg);
+  border: 1px dashed var(--gold-light);
+}
+
+[data-theme="design1"] .rsvp-button {
+  background: var(--gold);
+  color: #fff;
+  border: none;
+}
+
+[data-theme="design1"] .rsvp-button:hover {
+  background: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(184,148,46,0.3);
+}
+
+/* ============================================================
+   THEME 2 — GARDEN ROMANCE
+   Soft pink, floral, falling petals, Great Vibes script
+   ============================================================ */
+[data-theme="design2"] {
+  --bg: #FFF5F7;
+  --text: #5D3A4A;
+  --rose: #D4849B;
+  --rose-dark: #B55E79;
+  --sage: #8FA88A;
+  --cream: #FFFAFB;
+  background-color: #FFF5F7;
+  background-image: linear-gradient(135deg, #FFF5F7 0%, #FFE8EC 30%, #F5EFE8 70%, #EDF2E8 100%), var(--bg-image);
+  background-size: auto, cover;
+  background-position: 0 0, center;
+  background-attachment: scroll, scroll;
+  color: var(--text);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+[data-theme="design2"] .design-indicator {
+  background: var(--rose);
+  color: #fff;
+}
+
+[data-theme="design2"] .hero-names {
+  font-family: 'Great Vibes', 'Parisienne', 'Tangerine', cursive;
+  font-size: 5rem;
+  color: var(--rose-dark);
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+[data-theme="design2"] .name-ampersand {
+  font-size: 0.5em;
+  color: var(--sage);
+}
+
+[data-theme="design2"] .hero-pre,
+[data-theme="design2"] .hero-invite {
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--sage);
+  letter-spacing: 0.12em;
+}
+
+[data-theme="design2"] .date-day {
+  font-family: 'Great Vibes', cursive;
+  font-size: 4rem;
+  color: var(--rose-dark);
+}
+
+[data-theme="design2"] .date-month, [data-theme="design2"] .date-year {
+  font-size: 1.3rem;
+  color: var(--sage);
+  font-weight: 500;
+}
+
+[data-theme="design2"] .hero-ornament {
+  background: none;
+  width: auto;
+  height: auto;
+}
+
+[data-theme="design2"] .hero-ornament::before {
+  content: '❀  ✿  ❀';
+  font-size: 1.2rem;
+  letter-spacing: 0.3em;
+  color: var(--rose);
+}
+
+[data-theme="design2"] .section-title {
+  font-family: 'Great Vibes', 'Parisienne', cursive;
+  font-size: 2.5rem;
+  color: var(--rose-dark);
+  font-weight: 400;
+}
+
+[data-theme="design2"] .section-label {
+  color: var(--sage);
+}
+
+[data-theme="design2"] .countdown-number {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  color: var(--rose-dark);
+}
+
+[data-theme="design2"] .detail-card {
+  background: rgba(255,255,255,0.6);
+  border: 1px solid rgba(212,132,155,0.3);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+}
+
+[data-theme="design2"] .gallery-placeholder {
+  background: rgba(255,255,255,0.5);
+  border: 1px dashed rgba(212,132,155,0.4);
+  border-radius: 8px;
+}
+
+[data-theme="design2"] .rsvp-button {
+  background: var(--rose);
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 0.9rem 3rem;
+}
+
+[data-theme="design2"] .rsvp-button:hover {
+  background: var(--rose-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(181,94,121,0.35);
+}
+
+/* ============================================================
+   THEME 3 — MODERN MINIMAL
+   White space, bold sans-serif, single accent color
+   ============================================================ */
+[data-theme="design3"] {
+  --bg: #FFFFFF;
+  --text: #1A1A1A;
+  --accent: #C47B5A;
+  --light-gray: #F5F5F5;
+  background-color: var(--bg);
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  color: var(--text);
+  font-family: 'Montserrat', 'Raleway', system-ui, sans-serif;
+}
+
+[data-theme="design3"] .design-indicator {
+  background: #eee;
+  color: var(--text);
+}
+
+[data-theme="design3"] .hero {
+  padding-top: 7rem;
+}
+
+[data-theme="design3"] .hero-pre,
+[data-theme="design3"] .hero-invite {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-weight: 300;
+}
+
+[data-theme="design3"] .hero-names {
+  font-family: 'Montserrat', 'Raleway', sans-serif;
+  font-size: 3rem;
+  font-weight: 200;
+  letter-spacing: 0.15em;
+  color: var(--text);
+}
+
+[data-theme="design3"] .name-ampersand { color: var(--accent); font-weight: 300; }
+
+[data-theme="design3"] .date-day {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 5rem;
+  font-weight: 100;
+  color: var(--accent);
+}
+
+[data-theme="design3"] .date-month, [data-theme="design3"] .date-year {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+}
+
+[data-theme="design3"] .hero-ornament { display: none; }
+
+[data-theme="design3"] .section-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  position: relative;
+}
+
+[data-theme="design3"] .section-title::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: var(--accent);
+  margin: 0.75rem auto 0;
+}
+
+[data-theme="design3"] .countdown-number {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3rem;
+  font-weight: 200;
+  color: var(--accent);
+}
+
+[data-theme="design3"] .countdown-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+}
+
+[data-theme="design3"] .detail-card {
+  background: var(--light-gray);
+  border: none;
+}
+
+[data-theme="design3"] .gallery-placeholder {
+  background: var(--light-gray);
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+[data-theme="design3"] .rsvp-button {
+  background: var(--text);
+  color: #fff;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.15em;
+}
+
+[data-theme="design3"] .rsvp-button:hover {
+  background: var(--accent);
+}
+
+/* ============================================================
+   THEME 4 — CELESTIAL NIGHT
+   Navy/indigo with gold stars, twinkling, constellation feel
+   ============================================================ */
+[data-theme="design4"] {
+  --bg: #0A0E27;
+  --text: #D4D8E8;
+  --gold: #E8C56D;
+  --gold-light: #F5E1A4;
+  --star: #FFE9A8;
+  background-color: #0A0E27;
+  background-image: radial-gradient(ellipse at 30% 20%, #141B3D 0%, #0A0E27 50%, #060918 100%), var(--bg-image);
+  background-size: auto, cover;
+  background-position: 0 0, center;
+  background-attachment: scroll, scroll;
+  color: var(--text);
+  font-family: 'Cormorant Garamond', 'Crimson Text', Georgia, serif;
+}
+
+[data-theme="design4"] .design-indicator {
+  background: rgba(255,255,255,0.1);
+  color: var(--gold);
+  backdrop-filter: blur(10px);
+}
+
+[data-theme="design4"] .hero-pre,
+[data-theme="design4"] .hero-invite {
+  color: var(--gold-light);
+  letter-spacing: 0.15em;
+}
+
+[data-theme="design4"] .hero-names {
+  font-family: 'Cinzel', 'Playfair Display', serif;
+  font-size: 3.5rem;
+  color: var(--gold);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-shadow: 0 0 40px rgba(232,197,109,0.3);
+}
+
+[data-theme="design4"] .name-ampersand { color: var(--star); }
+
+[data-theme="design4"] .date-day {
+  font-family: 'Cinzel', serif;
+  font-size: 5rem;
+  color: var(--gold);
+  text-shadow: 0 0 30px rgba(232,197,109,0.4);
+}
+
+[data-theme="design4"] .date-month, [data-theme="design4"] .date-year {
+  color: var(--gold-light);
+  font-size: 1.3rem;
+  letter-spacing: 0.15em;
+}
+
+[data-theme="design4"] .hero-ornament {
+  background: radial-gradient(ellipse, var(--gold) 0%, transparent 70%);
+  height: 1px;
+  width: 200px;
+  opacity: 0.6;
+}
+
+[data-theme="design4"] .section-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.8rem;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+}
+
+[data-theme="design4"] .section-label { color: var(--gold-light); }
+
+[data-theme="design4"] .countdown-number {
+  font-family: 'Cinzel', serif;
+  font-size: 3rem;
+  color: var(--gold);
+  text-shadow: 0 0 20px rgba(232,197,109,0.3);
+}
+
+[data-theme="design4"] .countdown-label { color: var(--gold-light); }
+
+[data-theme="design4"] .detail-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(232,197,109,0.2);
+  border-radius: 4px;
+}
+
+[data-theme="design4"] .detail-card:hover {
+  border-color: rgba(232,197,109,0.5);
+  box-shadow: 0 0 30px rgba(232,197,109,0.1);
+}
+
+[data-theme="design4"] .gallery-placeholder {
+  background: rgba(255,255,255,0.03);
+  border: 1px dashed rgba(232,197,109,0.2);
+}
+
+[data-theme="design4"] .rsvp-button {
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  letter-spacing: 0.15em;
+}
+
+[data-theme="design4"] .rsvp-button:hover {
+  background: var(--gold);
+  color: #0A0E27;
+  box-shadow: 0 0 30px rgba(232,197,109,0.3);
+}
+
+[data-theme="design4"] .detail-icon { filter: drop-shadow(0 0 6px var(--gold)); }
+
+/* ============================================================
+   THEME 5 — BOHEMIAN DREAM
+   Warm earth tones, decorative patterns, artistic
+   ============================================================ */
+[data-theme="design5"] {
+  --bg: #FDF6F0;
+  --text: #5C3D2E;
+  --terracotta: #C2785C;
+  --ochre: #D4A24E;
+  --sage: #7D8B6F;
+  --cream: #FEF9F4;
+  background-color: #FDF6F0;
+  background-image: linear-gradient(to bottom, #FDF6F0, #F9EDE2 40%, #F5E6D8 100%), var(--bg-image);
+  background-size: auto, cover;
+  background-position: 0 0, center;
+  background-attachment: scroll, scroll;
+  color: var(--text);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+[data-theme="design5"] .design-indicator {
+  background: var(--terracotta);
+  color: #fff;
+}
+
+[data-theme="design5"] .hero-names {
+  font-family: 'Amatic SC', 'Caveat', cursive;
+  font-size: 5rem;
+  color: var(--terracotta);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+[data-theme="design5"] .name-ampersand {
+  color: var(--ochre);
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+}
+
+[data-theme="design5"] .hero-pre,
+[data-theme="design5"] .hero-invite {
+  color: var(--sage);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+[data-theme="design5"] .date-day {
+  font-family: 'Amatic SC', cursive;
+  font-size: 5rem;
+  color: var(--terracotta);
+}
+
+[data-theme="design5"] .date-month, [data-theme="design5"] .date-year {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--sage);
+}
+
+[data-theme="design5"] .hero-ornament {
+  background: none;
+  width: auto;
+  height: auto;
+}
+
+[data-theme="design5"] .hero-ornament::before {
+  content: '◈ ◈ ◈';
+  color: var(--ochre);
+  font-size: 0.8rem;
+  letter-spacing: 0.5em;
+}
+
+[data-theme="design5"] .section-title {
+  font-family: 'Amatic SC', cursive;
+  font-size: 2.5rem;
+  color: var(--terracotta);
+}
+
+[data-theme="design5"] .section-label {
+  font-family: 'Josefin Sans', sans-serif;
+  color: var(--sage);
+}
+
+[data-theme="design5"] .countdown-number {
+  font-family: 'Amatic SC', cursive;
+  font-size: 3rem;
+  color: var(--terracotta);
+}
+
+[data-theme="design5"] .detail-card {
+  background: var(--cream);
+  border: 2px solid rgba(194,120,92,0.2);
+  border-radius: 2px;
+  position: relative;
+}
+
+[data-theme="design5"] .detail-card::before {
+  content: '';
+  position: absolute;
+  top: 6px; left: 6px; right: 6px; bottom: 6px;
+  border: 1px solid rgba(212,162,78,0.2);
+  pointer-events: none;
+}
+
+[data-theme="design5"] .gallery-placeholder {
+  background: var(--cream);
+  border: 2px dashed rgba(194,120,92,0.25);
+}
+
+[data-theme="design5"] .rsvp-button {
+  background: var(--terracotta);
+  color: #fff;
+  border: none;
+  border-radius: 0;
+}
+
+[data-theme="design5"] .rsvp-button:hover {
+  background: var(--text);
+}
+
+/* ============================================================
+   THEME 6 — EDITORIAL CHIC
+   Black & white, high contrast, magazine feel
+   ============================================================ */
+[data-theme="design6"] {
+  --bg: #FAFAFA;
+  --text: #111111;
+  --accent: #444;
+  background-color: var(--bg);
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  color: var(--text);
+  font-family: 'DM Serif Display', 'Playfair Display', 'Libre Baskerville', Georgia, serif;
+}
+
+[data-theme="design6"] .design-indicator {
+  background: #000;
+  color: #fff;
+}
+
+[data-theme="design6"] .hero {
+  text-align: left;
+  max-width: 700px;
+  margin: 0 auto;
+  padding-top: 6rem;
+}
+
+[data-theme="design6"] .hero-pre,
+[data-theme="design6"] .hero-invite {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-weight: 400;
+  color: #666;
+}
+
+[data-theme="design6"] .hero-names {
+  font-size: 5rem;
+  font-weight: 400;
+  color: #000;
+  justify-content: flex-start;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  display: block;
+}
+
+[data-theme="design6"] .name-ampersand {
+  font-style: italic;
+  color: #999;
+  margin: 0 0.5rem;
+}
+
+[data-theme="design6"] .date-day {
+  font-size: 7rem;
+  font-weight: 400;
+  color: #000;
+  line-height: 0.9;
+}
+
+[data-theme="design6"] .date-month, [data-theme="design6"] .date-year {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: #666;
+  font-weight: 400;
+  display: block;
+}
+
+[data-theme="design6"] .hero-ornament { display: none; }
+
+[data-theme="design6"] .section-title {
+  font-size: 2.5rem;
+  text-align: left;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+[data-theme="design6"] .section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: #000;
+}
+
+[data-theme="design6"] .story-content { text-align: left; margin: 0; }
+
+[data-theme="design6"] .countdown-number {
+  font-size: 3.5rem;
+  color: #000;
+}
+
+[data-theme="design6"] .detail-card {
+  background: #fff;
+  border: 2px solid #000;
+  border-radius: 0;
+  text-align: left;
+}
+
+[data-theme="design6"] .gallery-placeholder {
+  background: #fff;
+  border: 2px solid #000;
+  border-radius: 0;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.7rem;
+}
+
+[data-theme="design6"] .rsvp-button {
+  background: #000;
+  color: #fff;
+  border: 2px solid #000;
+  border-radius: 0;
+}
+
+[data-theme="design6"] .rsvp-button:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* ============================================================
+   THEME 7 — WATERCOLOR WHISPERS
+   Soft pastels, dreamy blurred effects, artistic
+   ============================================================ */
+[data-theme="design7"] {
+  --bg: #FDFCFB;
+  --text: #6B5B6E;
+  --lavender: #B8A9C9;
+  --mint: #A8D0C8;
+  --peach: #F0CEBE;
+  --blush: #ECC0C9;
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(ellipse 600px 400px at 20% 20%, rgba(184,169,201,0.2) 0%, transparent 70%),
+    radial-gradient(ellipse 500px 500px at 80% 40%, rgba(240,206,190,0.2) 0%, transparent 70%),
+    radial-gradient(ellipse 500px 500px at 50% 80%, rgba(168,208,200,0.15) 0%, transparent 70%),
+    var(--bg-image);
+  background-size: auto, auto, auto, cover;
+  background-position: 0 0, 0 0, 0 0, center;
+  background-attachment: scroll, scroll, scroll, scroll;
+  color: var(--text);
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+}
+
+[data-theme="design7"] .design-indicator {
+  background: var(--lavender);
+  color: #fff;
+}
+
+[data-theme="design7"] .hero-names {
+  font-family: 'Parisienne', 'Tangerine', 'Sacramento', cursive;
+  font-size: 5rem;
+  color: #8B7AA5;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+[data-theme="design7"] .name-ampersand { color: var(--peach); font-size: 0.6em; }
+
+[data-theme="design7"] .hero-pre,
+[data-theme="design7"] .hero-invite {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: #A898B8;
+}
+
+[data-theme="design7"] .date-day {
+  font-family: 'Parisienne', cursive;
+  font-size: 4.5rem;
+  color: #8B7AA5;
+}
+
+[data-theme="design7"] .date-month, [data-theme="design7"] .date-year {
+  color: var(--mint);
+  font-weight: 500;
+}
+
+[data-theme="design7"] .hero-ornament {
+  background: none;
+  width: auto;
+  height: auto;
+}
+
+[data-theme="design7"] .hero-ornament::before {
+  content: '~  ~  ~';
+  color: var(--lavender);
+  font-size: 1rem;
+  letter-spacing: 0.4em;
+}
+
+[data-theme="design7"] .section-title {
+  font-family: 'Parisienne', cursive;
+  font-size: 2.5rem;
+  color: #8B7AA5;
+}
+
+[data-theme="design7"] .section-label { color: var(--lavender); }
+
+[data-theme="design7"] .countdown-number {
+  font-family: 'Parisienne', cursive;
+  font-size: 3rem;
+  color: #8B7AA5;
+}
+
+[data-theme="design7"] .detail-card {
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(184,169,201,0.25);
+  border-radius: 12px;
+}
+
+[data-theme="design7"] .gallery-placeholder {
+  background: rgba(255,255,255,0.5);
+  border: 1px dashed rgba(184,169,201,0.3);
+  border-radius: 12px;
+}
+
+[data-theme="design7"] .rsvp-button {
+  background: var(--lavender);
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+}
+
+[data-theme="design7"] .rsvp-button:hover {
+  background: #8B7AA5;
+  box-shadow: 0 6px 20px rgba(139,122,165,0.3);
+}
+
+/* ============================================================
+   THEME 8 — RUSTIC CHARM
+   Kraft paper, warm browns, handwritten feel, cozy
+   ============================================================ */
+[data-theme="design8"] {
+  --bg: #F5EDE0;
+  --text: #4A3728;
+  --brown: #8B6914;
+  --warm: #C4956A;
+  --twine: #D4A96A;
+  --kraft: #E8DCCF;
+  background-color: var(--bg);
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(139,105,20,0.02) 2px,
+      rgba(139,105,20,0.02) 4px
+    ),
+    var(--bg-image);
+  background-size: auto, cover;
+  background-position: 0 0, center;
+  background-attachment: scroll, scroll;
+  color: var(--text);
+  font-family: 'Caveat', 'Amatic SC', cursive;
+}
+
+[data-theme="design8"] .design-indicator {
+  background: var(--brown);
+  color: #fff;
+}
+
+[data-theme="design8"] .hero-names {
+  font-family: 'Caveat', 'Amatic SC', cursive;
+  font-size: 5rem;
+  color: var(--brown);
+  font-weight: 700;
+}
+
+[data-theme="design8"] .name-ampersand { color: var(--warm); font-size: 0.7em; }
+
+[data-theme="design8"] .hero-pre,
+[data-theme="design8"] .hero-invite {
+  font-family: 'Caveat', cursive;
+  font-size: 1.3rem;
+  color: var(--warm);
+}
+
+[data-theme="design8"] .date-day {
+  font-family: 'Caveat', cursive;
+  font-size: 5rem;
+  color: var(--brown);
+}
+
+[data-theme="design8"] .date-month, [data-theme="design8"] .date-year {
+  font-family: 'Caveat', cursive;
+  font-size: 1.5rem;
+  color: var(--warm);
+}
+
+[data-theme="design8"] .hero-ornament {
+  background: var(--twine);
+  height: 3px;
+  width: 160px;
+  border-radius: 2px;
+  opacity: 0.5;
+}
+
+[data-theme="design8"] .section-title {
+  font-family: 'Caveat', cursive;
+  font-size: 2.5rem;
+  color: var(--brown);
+}
+
+[data-theme="design8"] .section-label {
+  font-family: 'Caveat', cursive;
+  font-size: 1.1rem;
+  color: var(--warm);
+}
+
+[data-theme="design8"] .countdown-number {
+  font-family: 'Caveat', cursive;
+  font-size: 3rem;
+  color: var(--brown);
+}
+
+[data-theme="design8"] .countdown-label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.6rem;
+  color: var(--warm);
+}
+
+[data-theme="design8"] .detail-card {
+  background: var(--kraft);
+  border: 2px solid rgba(139,105,20,0.2);
+  border-radius: 2px;
+  box-shadow: 2px 2px 0 rgba(139,105,20,0.1);
+}
+
+[data-theme="design8"] .gallery-placeholder {
+  background: var(--kraft);
+  border: 2px dashed rgba(139,105,20,0.2);
+  font-family: 'Caveat', cursive;
+  font-size: 1.1rem;
+}
+
+[data-theme="design8"] .rsvp-button {
+  background: var(--brown);
+  color: #fff;
+  border: none;
+  border-radius: 2px;
+  font-family: 'Caveat', cursive;
+  font-size: 1.2rem;
+}
+
+[data-theme="design8"] .rsvp-button:hover {
+  background: var(--text);
+}
+
+/* ============================================================
+   THEME 9 — ART DECO LUXE
+   Geometric, gold, black, 1920s glamour
+   ============================================================ */
+[data-theme="design9"] {
+  --bg: #0D0D0D;
+  --text: #E0DCC8;
+  --gold: #D4A843;
+  --gold-bright: #F0D078;
+  --dark: #1A1A1A;
+  background-color: #0D0D0D;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 4px,
+      rgba(212,168,67,0.03) 4px,
+      rgba(212,168,67,0.03) 8px
+    ),
+    linear-gradient(180deg, #0D0D0D 0%, #1A1A1A 100%),
+    var(--bg-image);
+  background-size: auto, auto, cover;
+  background-position: 0 0, 0 0, center;
+  background-attachment: fixed, fixed, scroll;
+  color: var(--text);
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+}
+
+[data-theme="design9"] .design-indicator {
+  background: var(--gold);
+  color: #0D0D0D;
+}
+
+[data-theme="design9"] .hero {
+  border: 1px solid rgba(212,168,67,0.3);
+  max-width: 600px;
+  margin: 6rem auto 0;
+  padding: 4rem 3rem;
+  position: relative;
+}
+
+[data-theme="design9"] .hero::before {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(212,168,67,0.15);
+  pointer-events: none;
+}
+
+[data-theme="design9"] .hero-pre,
+[data-theme="design9"] .hero-invite {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  color: var(--gold);
+}
+
+[data-theme="design9"] .hero-names {
+  font-family: 'Cinzel', 'Playfair Display', serif;
+  font-size: 3.5rem;
+  color: var(--gold-bright);
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-shadow: 0 0 30px rgba(240,208,120,0.2);
+}
+
+[data-theme="design9"] .name-ampersand { color: var(--gold); }
+
+[data-theme="design9"] .date-day {
+  font-family: 'Cinzel', serif;
+  font-size: 5rem;
+  color: var(--gold-bright);
+  text-shadow: 0 0 20px rgba(240,208,120,0.3);
+}
+
+[data-theme="design9"] .date-month, [data-theme="design9"] .date-year {
+  color: var(--gold);
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+}
+
+[data-theme="design9"] .hero-ornament {
+  background: linear-gradient(90deg, transparent, var(--gold), var(--gold-bright), var(--gold), transparent);
+  height: 1px;
+  width: 200px;
+  opacity: 0.8;
+}
+
+[data-theme="design9"] .section-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.6rem;
+  color: var(--gold-bright);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+[data-theme="design9"] .section-label {
+  color: var(--gold);
+  font-family: 'Montserrat', sans-serif;
+}
+
+[data-theme="design9"] .countdown-number {
+  font-family: 'Cinzel', serif;
+  font-size: 3rem;
+  color: var(--gold-bright);
+  text-shadow: 0 0 15px rgba(240,208,120,0.2);
+}
+
+[data-theme="design9"] .countdown-label {
+  color: var(--gold);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.6rem;
+}
+
+[data-theme="design9"] .detail-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(212,168,67,0.25);
+  border-radius: 0;
+}
+
+[data-theme="design9"] .detail-card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 0 25px rgba(212,168,67,0.1);
+}
+
+[data-theme="design9"] .gallery-placeholder {
+  background: rgba(255,255,255,0.02);
+  border: 1px dashed rgba(212,168,67,0.2);
+}
+
+[data-theme="design9"] .rsvp-button {
+  background: transparent;
+  color: var(--gold-bright);
+  border: 1px solid var(--gold);
+  letter-spacing: 0.2em;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  border-radius: 0;
+}
+
+[data-theme="design9"] .rsvp-button:hover {
+  background: var(--gold);
+  color: #0D0D0D;
+}
+
+/* ============================================================
+   THEME 10 — SUNSET GLOW
+   Warm coral/peach gradients, golden hour romance
+   ============================================================ */
+[data-theme="design10"] {
+  --bg: #FFF8F4;
+  --text: #5C3D3E;
+  --coral: #E07A5F;
+  --peach: #F2B78A;
+  --gold: #D4A24E;
+  --warm: #F9E4D0;
+  background-color: #FFF8F4;
+  background-image: linear-gradient(160deg, #FFF8F4 0%, #FDE8D8 25%, #FAD4BC 50%, #FDE8D8 75%, #FFF8F4 100%), var(--bg-image);
+  background-size: auto, cover;
+  background-position: 0 0, center;
+  background-attachment: fixed, scroll;
+  color: var(--text);
+  font-family: 'Cormorant Garamond', 'EB Garamond', serif;
+}
+
+[data-theme="design10"] .design-indicator {
+  background: var(--coral);
+  color: #fff;
+}
+
+[data-theme="design10"] .hero-names {
+  font-family: 'Alex Brush', 'Great Vibes', 'Tangerine', cursive;
+  font-size: 5.5rem;
+  color: var(--coral);
+  font-weight: 400;
+  line-height: 1.3;
+  text-shadow: 0 2px 30px rgba(224,122,95,0.15);
+}
+
+[data-theme="design10"] .name-ampersand { color: var(--gold); font-size: 0.6em; }
+
+[data-theme="design10"] .hero-pre,
+[data-theme="design10"] .hero-invite {
+  font-family: 'Spectral', 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--peach);
+  font-weight: 300;
+}
+
+[data-theme="design10"] .date-day {
+  font-family: 'Alex Brush', cursive;
+  font-size: 5rem;
+  color: var(--coral);
+}
+
+[data-theme="design10"] .date-month, [data-theme="design10"] .date-year {
+  color: var(--gold);
+  font-weight: 500;
+  font-style: italic;
+  font-size: 1.3rem;
+}
+
+[data-theme="design10"] .hero-ornament {
+  background: linear-gradient(90deg, transparent, var(--coral), var(--peach), var(--coral), transparent);
+  height: 1px;
+  width: 180px;
+  opacity: 0.5;
+}
+
+[data-theme="design10"] .section-title {
+  font-family: 'Alex Brush', 'Great Vibes', cursive;
+  font-size: 2.8rem;
+  color: var(--coral);
+  font-weight: 400;
+}
+
+[data-theme="design10"] .section-label { color: var(--peach); }
+
+[data-theme="design10"] .countdown-number {
+  font-family: 'Alex Brush', cursive;
+  font-size: 3rem;
+  color: var(--coral);
+}
+
+[data-theme="design10"] .detail-card {
+  background: rgba(255,255,255,0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(224,122,95,0.2);
+  border-radius: 8px;
+}
+
+[data-theme="design10"] .gallery-placeholder {
+  background: rgba(255,255,255,0.4);
+  border: 1px dashed rgba(224,122,95,0.25);
+  border-radius: 8px;
+}
+
+[data-theme="design10"] .rsvp-button {
+  background: var(--coral);
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 0.9rem 3rem;
+}
+
+[data-theme="design10"] .rsvp-button:hover {
+  background: #C96B52;
+  box-shadow: 0 8px 25px rgba(224,122,95,0.3);
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   ANIMATIONS — FALLING PETALS (Design 2)
+   ============================================================ */
+.petals-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  display: none;
+}
+
+[data-theme="design2"] .petals-container { display: block; }
+
+.petal {
+  position: absolute;
+  top: -40px;
+  width: 18px;
+  height: 18px;
+  background: radial-gradient(ellipse at 30% 30%, #F9C5D1, #E89BAE);
+  border-radius: 50% 0 50% 0;
+  opacity: 0;
+  animation: petalFall linear infinite;
+}
+
+.petal:nth-child(odd) {
+  background: radial-gradient(ellipse at 30% 30%, #FDDDE6, #F0B0C3);
+  border-radius: 0 50% 0 50%;
+}
+
+@keyframes petalFall {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg) scale(1);
+    opacity: 0;
+  }
+  5% { opacity: 0.7; }
+  50% { opacity: 0.6; }
+  100% {
+    transform: translateY(105vh) translateX(80px) rotate(540deg) scale(0.3);
+    opacity: 0;
+  }
+}
+
+/* ============================================================
+   ANIMATIONS — TWINKLING STARS (Design 4)
+   ============================================================ */
+.stars-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  display: none;
+}
+
+[data-theme="design4"] .stars-container { display: block; }
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #FFE9A8;
+  border-radius: 50%;
+  animation: twinkle ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.8); }
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  .wrapper { padding: 1.5rem; }
+
+  .hero-names { font-size: 2.5rem !important; gap: 0.8rem; }
+  [data-theme="design1"] .hero-names { font-size: 2.8rem !important; }
+  [data-theme="design2"] .hero-names { font-size: 3.5rem !important; }
+  [data-theme="design5"] .hero-names { font-size: 3.5rem !important; }
+  [data-theme="design6"] .hero-names { font-size: 3rem !important; }
+  [data-theme="design8"] .hero-names { font-size: 3.5rem !important; }
+  [data-theme="design10"] .hero-names { font-size: 3.5rem !important; }
+
+  .date-day { font-size: 3.5rem !important; }
+  [data-theme="design6"] .date-day { font-size: 4.5rem !important; }
+
+  .countdown-grid { gap: 1rem; }
+  .countdown-number { font-size: 2rem !important; }
+  .countdown-item { min-width: 60px; }
+
+  .details-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+
+  section { padding: 2.5rem 0; }
+  .hero { padding-top: 3rem; }
+
+  .nav-toggle { bottom: 1.5rem; right: 1.5rem; }
+  .design-indicator { bottom: 1.5rem; left: 1.5rem; }
+}
+
+@media (max-width: 480px) {
+  .hero-names { font-size: 2rem !important; gap: 0.5rem; }
+  [data-theme="1"] .hero-names,
+  [data-theme="2"] .hero-names { font-size: 2.5rem !important; }
+
+  .date-day { font-size: 2.8rem !important; }
+
+  .gallery-grid { grid-template-columns: 1fr; }
+
+  .design-nav { width: 260px; }
+}
+
+/* ============================================================
+   BACKGROUND IMAGE SYSTEM
+   To add a photo to any design, add this inside a <style> block
+   in index.html (or at the end of this file):
+
+   [data-theme="design1"] { --bg-image: url('../backgrounds/my-photo.jpg'); }
+
+   Every theme already layers --bg-image into its background stack.
+   Just set the variable and the photo appears.
+   ============================================================ */
+[data-theme] {
+  --bg-image: none;
+}
+
+/* ============================================================
+   PRINT STYLES
+   ============================================================ */
+@media print {
+  .nav-toggle, .design-nav, .nav-overlay, .design-indicator,
+  .petals-container, .stars-container { display: none !important; }
+
+  body { background: #fff !important; color: #000 !important; font-size: 14px; }
+  .wrapper { max-width: 100%; padding: 0; }
+  section { padding: 1.5rem 0; page-break-inside: avoid; }
+  .rsvp-button { border: 2px solid #000 !important; color: #000 !important; background: none !important; }
+}
