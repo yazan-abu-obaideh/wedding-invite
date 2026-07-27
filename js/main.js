@@ -1,13 +1,209 @@
 /* ============================================================
-   AYAH & YAZAN — WEDDING INVITATION
-   Router, Countdown, Navigation, Animations
+   YAZAN & AYAH — WEDDING INVITATION
+   Router, Countdown, Navigation, Animations, i18n
    ============================================================ */
 
 (function () {
   'use strict';
 
-  const TOTAL_DESIGNS = 10;
+  const TOTAL_DESIGNS = 11;
   const WEDDING_DATE = new Date('2026-08-22T16:00:00');
+
+  // ─── i18n TRANSLATIONS ────────────────────────────────────
+  const translations = {
+    en: {
+      'lang.label': 'العربية',
+      'lang.switch': 'Switch to Arabic',
+      'nav.title': 'Choose a Design',
+      'nav.subtitle': '11 styles for Yazan and Ayah',
+      'design1.label': '1. Classic Gold',
+      'design2.label': '2. Garden Romance',
+      'design3.label': '3. Modern Minimal',
+      'design4.label': '4. Celestial Night',
+      'design5.label': '5. Bohemian Dream',
+      'design6.label': '6. Editorial Chic',
+      'design7.label': '7. Watercolor Whispers',
+      'design8.label': '8. Rustic Charm',
+      'design9.label': '9. Art Deco Luxe',
+      'design10.label': '10. Sunset Glow',
+      'design11.label': '11. Golden Petals',
+      'hero.name.ayah': 'Ayah',
+      'hero.name.and': 'and',
+      'hero.name.yazan': 'Yazan',
+      'hero.pre': 'Together with their families',
+      'hero.invite': 'invite you to celebrate their wedding',
+      'hero.month': 'August',
+      'countdown.label': 'Counting Down',
+      'countdown.days': 'Days',
+      'countdown.hours': 'Hours',
+      'countdown.minutes': 'Minutes',
+      'countdown.seconds': 'Seconds',
+      'story.title': 'Our Story',
+      'story.p1': 'From the moment our paths crossed, the world felt a little brighter. Every shared laugh, every quiet moment, every adventure has led us here — to this beautiful beginning.',
+      'story.p2': 'With hearts full of joy and gratitude, we invite you to share in the celebration of our love and the start of our forever.',
+      'timeline.title': 'The Evening',
+      'timeline.reception.time': '7:00 PM',
+      'timeline.reception.title': 'Reception',
+      'timeline.reception.desc': 'Welcome drinks & canapés',
+      'timeline.zaffeh.time': '8:00 PM',
+      'timeline.zaffeh.title': 'Zaffeh',
+      'timeline.zaffeh.desc': 'The grand entrance',
+      'timeline.dinner.time': '10:00 PM',
+      'timeline.dinner.title': 'Dinner',
+      'timeline.dinner.desc': 'Feast & celebration',
+      'location.title': 'Location',
+      'location.link': 'Marriott Hotel Amman ↗',
+      'gallery.title': 'Gallery',
+      'gallery.placeholder': 'Add your photos here',
+      'rsvp.title': 'RSVP',
+      'rsvp.text': 'Kindly respond by August 1st, 2026',
+      'rsvp.button': 'Send Your RSVP',
+      'footer.names': 'Yazan and Ayah',
+      'footer.date': 'August 22nd, 2026',
+      'designLabel.design1': 'Classic Gold',
+      'designLabel.design2': 'Garden Romance',
+      'designLabel.design3': 'Modern Minimal',
+      'designLabel.design4': 'Celestial Night',
+      'designLabel.design5': 'Bohemian Dream',
+      'designLabel.design6': 'Editorial Chic',
+      'designLabel.design7': 'Watercolor Whispers',
+      'designLabel.design8': 'Rustic Charm',
+      'designLabel.design9': 'Art Deco Luxe',
+      'designLabel.design10': 'Sunset Glow',
+      'designLabel.design11': 'Golden Petals',
+    },
+    ar: {
+      'lang.label': 'English',
+      'lang.switch': 'التبديل إلى الإنجليزية',
+      'nav.title': 'اختر تصميماً',
+      'nav.subtitle': '11 تصميماً ليزن و آية',
+      'design1.label': '1. الكلاسيكية الذهبية',
+      'design2.label': '2. رومانسية الحديقة',
+      'design3.label': '3. البساطة العصرية',
+      'design4.label': '4. الليل السماوي',
+      'design5.label': '5. الحلم البوهيمي',
+      'design6.label': '6. الأناقة التحريرية',
+      'design7.label': '7. همسات مائية',
+      'design8.label': '8. السحر الريفي',
+      'design9.label': '9. فخامة آرت ديكو',
+      'design10.label': '10. توهج الغروب',
+      'design11.label': '11. البتلات الذهبية',
+      'hero.name.ayah': 'آية',
+      'hero.name.and': 'و',
+      'hero.name.yazan': 'يزن',
+      'hero.pre': 'مع عائلاتهما',
+      'hero.invite': 'يدعوانكم للاحتفال بزفافهما',
+      'hero.month': 'أغسطس',
+      'countdown.label': 'العد التنازلي',
+      'countdown.days': 'يوم',
+      'countdown.days.plural': 'أيام',
+      'countdown.hours': 'ساعات',
+      'countdown.minutes': 'دقائق',
+      'countdown.seconds': 'ثوانٍ',
+      'story.title': 'قصتنا',
+      'story.p1': 'منذ اللحظة التي تقاطعت فيها طرقنا، أصبح العالم أكثر إشراقاً. كل ضحكة شاركناها، وكل لحظة هادئة، وكل مغامرة قادتنا إلى هنا — إلى هذه البداية الجميلة.',
+      'story.p2': 'بقلوب مليئة بالفرح والامتنان، ندعوكم لمشاركتنا الاحتفال بحبنا وبداية حياتنا معاً.',
+      'timeline.title': 'برنامج المساء',
+      'timeline.reception.time': '7:00 مساءً',
+      'timeline.reception.title': 'استقبال',
+      'timeline.reception.desc': 'مشروبات ترحيبية ومقبلات',
+      'timeline.zaffeh.time': '8:00 مساءً',
+      'timeline.zaffeh.title': 'زفّة',
+      'timeline.zaffeh.desc': 'الدخلة الملكية',
+      'timeline.dinner.time': '10:00 مساءً',
+      'timeline.dinner.title': 'عشاء',
+      'timeline.dinner.desc': 'وليمة واحتفال',
+      'location.title': 'الموقع',
+      'location.link': 'فندق الماريوت عمّان ↗',
+      'gallery.title': 'معرض الصور',
+      'gallery.placeholder': 'أضف صورك هنا',
+      'rsvp.title': 'تأكيد الحضور',
+      'rsvp.text': 'الرجاء تأكيد الحضور قبل 1 أغسطس 2026',
+      'rsvp.button': 'أرسل التأكيد',
+      'footer.names': 'يزن و آية',
+      'footer.date': '22 أغسطس 2026',
+      'designLabel.design1': 'الكلاسيكية الذهبية',
+      'designLabel.design2': 'رومانسية الحديقة',
+      'designLabel.design3': 'البساطة العصرية',
+      'designLabel.design4': 'الليل السماوي',
+      'designLabel.design5': 'الحلم البوهيمي',
+      'designLabel.design6': 'الأناقة التحريرية',
+      'designLabel.design7': 'همسات مائية',
+      'designLabel.design8': 'السحر الريفي',
+      'designLabel.design9': 'فخامة آرت ديكو',
+      'designLabel.design10': 'توهج الغروب',
+      'designLabel.design11': 'البتلات الذهبية',
+    }
+  };
+
+  let currentLang = 'en';
+
+  function t(key) {
+    return (translations[currentLang] && translations[currentLang][key]) || (translations.en[key]) || key;
+  }
+
+  function setLanguage(lang) {
+    currentLang = lang;
+    var html = document.documentElement;
+    html.lang = lang;
+    html.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+    // Update all [data-i18n] elements
+    var elements = document.querySelectorAll('[data-i18n]');
+    for (var i = 0; i < elements.length; i++) {
+      var el = elements[i];
+      var key = el.getAttribute('data-i18n');
+      if (key) {
+        el.textContent = t(key);
+      }
+    }
+
+    // Update all [data-i18n-attr] elements (for aria-label etc.)
+    var attrElements = document.querySelectorAll('[data-i18n-attr]');
+    for (var j = 0; j < attrElements.length; j++) {
+      var attrEl = attrElements[j];
+      var attrDef = attrEl.getAttribute('data-i18n-attr');
+      if (attrDef) {
+        var parts = attrDef.split(':');
+        var attrName = parts[0];
+        var attrKey = parts[1];
+        attrEl.setAttribute(attrName, t(attrKey));
+      }
+    }
+
+    // Update document title
+    document.title = lang === 'ar'
+      ? 'يزن و آية — 22 أغسطس 2026'
+      : 'Yazan and Ayah — August 22nd, 2026';
+
+    // Update design indicator
+    var body = document.body;
+    var design = body.getAttribute('data-theme');
+    if (design) {
+      var designNameEl = document.querySelector('.design-name');
+      if (designNameEl) {
+        designNameEl.textContent = t('designLabel.' + design) || '';
+      }
+    }
+
+    // Persist preference
+    try {
+      localStorage.setItem('wedding-lang', lang);
+    } catch (e) { /* ignore */ }
+
+    // Refresh countdown to update Arabic days label
+    updateCountdown();
+  }
+
+  function toggleLanguage() {
+    setLanguage(currentLang === 'ar' ? 'en' : 'ar');
+  }
+
+  // ─── LANGUAGE TOGGLE BUTTON ───────────────────────────────
+  var langToggle = document.querySelector('.lang-toggle');
+  if (langToggle) {
+    langToggle.addEventListener('click', toggleLanguage);
+  }
 
   // ─── ROUTER ───────────────────────────────────────────────
   const body = document.body;
@@ -15,24 +211,11 @@
   const designNumber = document.querySelector('.design-number');
   const designName = document.querySelector('.design-name');
 
-  const designLabels = {
-    design1: 'Classic Gold',
-    design2: 'Garden Romance',
-    design3: 'Modern Minimal',
-    design4: 'Celestial Night',
-    design5: 'Bohemian Dream',
-    design6: 'Editorial Chic',
-    design7: 'Watercolor Whispers',
-    design8: 'Rustic Charm',
-    design9: 'Art Deco Luxe',
-    design10: 'Sunset Glow',
-  };
-
   function setTheme(design) {
     const num = design.replace('design', '');
     body.setAttribute('data-theme', design);
     designNumber.textContent = num + ' / 10';
-    designName.textContent = designLabels[design] || '';
+    designName.textContent = t('designLabel.' + design) || '';
 
     navLinks.forEach(function (link) {
       var href = link.getAttribute('href').replace('#', '');
@@ -44,7 +227,7 @@
     });
 
     // Rebuild special effects for current theme
-    if (design === 'design2') buildPetals();
+    if (design === 'design2' || design === 'design11') buildPetals();
     if (design === 'design4') buildStars();
   }
 
@@ -81,6 +264,7 @@
   var hoursEl = document.getElementById('hours');
   var minutesEl = document.getElementById('minutes');
   var secondsEl = document.getElementById('seconds');
+  var daysLabelEl = document.querySelector('[data-i18n="countdown.days"]');
 
   function updateCountdown() {
     var now = new Date().getTime();
@@ -91,6 +275,9 @@
       hoursEl.textContent = '00';
       minutesEl.textContent = '00';
       secondsEl.textContent = '00';
+      if (daysLabelEl && currentLang === 'ar') {
+        daysLabelEl.textContent = t('countdown.days');
+      }
       return;
     }
 
@@ -103,6 +290,11 @@
     hoursEl.textContent = String(hours).padStart(2, '0');
     minutesEl.textContent = String(mins).padStart(2, '0');
     secondsEl.textContent = String(secs).padStart(2, '0');
+
+    // Dynamic Arabic days label: "يوم" except when count is 2-9, then "أيام"
+    if (daysLabelEl && currentLang === 'ar') {
+      daysLabelEl.textContent = (days >= 2 && days <= 9) ? t('countdown.days.plural') : t('countdown.days');
+    }
 
     // Animate pulse when seconds change
     secondsEl.style.transform = 'scale(1.15)';
@@ -210,6 +402,15 @@
   });
 
   // ─── INIT ─────────────────────────────────────────────────
+  // Load saved language preference
+  var savedLang = null;
+  try {
+    savedLang = localStorage.getItem('wedding-lang');
+  } catch (e) { /* ignore */ }
+  if (savedLang === 'ar' || savedLang === 'en') {
+    setLanguage(savedLang);
+  }
+
   handleHashChange();
 
   // Add touch swipe support for mobile

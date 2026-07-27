@@ -1,6 +1,6 @@
 /* ============================================================
-   AYAH & YAZAN — WEDDING INVITATION
-   10 Design Themes — Plain HTML, CSS, JavaScript
+   YAZAN & AYAH — WEDDING INVITATION
+   11 Design Themes — Plain HTML, CSS, JavaScript
    ============================================================ */
 
 /* ----- CSS Reset & Base ----- */
@@ -201,6 +201,119 @@ section {
   line-height: 1.5;
 }
 
+/* ----- Timeline Shared ----- */
+.timeline-section {
+  text-align: center;
+}
+
+.timeline {
+  max-width: 500px;
+  margin: 0 auto;
+  position: relative;
+  padding-left: 2rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: currentColor;
+  opacity: 0.2;
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 2.5rem;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -2rem;
+  top: 0.4rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.5;
+  transform: translateX(-4.5px);
+}
+
+.timeline-content {
+  text-align: left;
+  padding-left: 1.5rem;
+}
+
+[dir="rtl"] .timeline {
+  padding-left: 0;
+  padding-right: 2rem;
+}
+
+[dir="rtl"] .timeline::before {
+  left: auto;
+  right: 0;
+}
+
+[dir="rtl"] .timeline-marker {
+  left: auto;
+  right: -2rem;
+  transform: translateX(4.5px);
+}
+
+[dir="rtl"] .timeline-content {
+  text-align: right;
+  padding-left: 0;
+  padding-right: 1.5rem;
+}
+
+.timeline-time {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.6;
+  font-weight: 500;
+}
+
+.timeline-content h3 {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin: 0.2rem 0 0.3rem;
+}
+
+.timeline-content p {
+  font-size: 0.95rem;
+  opacity: 0.7;
+}
+
+/* ----- Location Shared ----- */
+.location-section {
+  text-align: center;
+}
+
+.location-link {
+  display: inline-block;
+  padding: 0.85rem 2.5rem;
+  border-radius: 2px;
+  letter-spacing: 0.08em;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-weight: 500;
+  border: 1px solid currentColor;
+  opacity: 0.8;
+}
+
+.location-link:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
 /* ----- Gallery Shared ----- */
 .gallery-grid {
   display: grid;
@@ -259,9 +372,155 @@ section {
 
 .footer-date { font-size: 0.8rem; opacity: 0.6; margin-top: 0.25rem; }
 
+/* ----- Language Toggle ----- */
+.lang-toggle {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 100;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  border: 1px solid rgba(128,128,128,0.3);
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  color: inherit;
+  font-family: 'Amiri', 'Tajawal', serif;
+  font-size: 0.85rem;
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  transition: all 0.3s ease;
+  opacity: 0.75;
+}
+
+.lang-toggle:hover {
+  opacity: 1;
+  border-color: rgba(128,128,128,0.6);
+  transform: translateY(-1px);
+}
+
 /* ============================================================
-   NAVIGATION SYSTEM
+   ARABIC FONT OVERRIDES
    ============================================================ */
+html[lang="ar"] body {
+  font-family: 'Amiri', 'Tajawal', 'Cormorant Garamond', serif;
+}
+
+html[lang="ar"] .hero-names {
+  font-family: 'Amiri', 'Tajawal', serif;
+  font-size: 3.5rem;
+}
+
+html[lang="ar"] .section-title {
+  font-family: 'Amiri', 'Tajawal', serif;
+}
+
+html[lang="ar"] [data-theme="design3"] body,
+html[lang="ar"] [data-theme="design3"] .hero-names,
+html[lang="ar"] [data-theme="design3"] .section-title,
+html[lang="ar"] [data-theme="design3"] .countdown-number,
+html[lang="ar"] [data-theme="design3"] .countdown-label,
+html[lang="ar"] [data-theme="design3"] .hero-pre,
+html[lang="ar"] [data-theme="design3"] .hero-invite,
+html[lang="ar"] [data-theme="design3"] .date-month,
+html[lang="ar"] [data-theme="design3"] .date-year,
+html[lang="ar"] [data-theme="design3"] .gallery-placeholder,
+html[lang="ar"] [data-theme="design3"] .rsvp-button {
+  font-family: 'Tajawal', 'Amiri', sans-serif;
+}
+
+html[lang="ar"] [data-theme="design6"] body,
+html[lang="ar"] [data-theme="design6"] .hero-names,
+html[lang="ar"] [data-theme="design6"] .section-title {
+  font-family: 'Amiri', 'Tajawal', 'DM Serif Display', serif;
+}
+
+/* ============================================================
+   RTL OVERRIDES
+   ============================================================ */
+[dir="rtl"] .nav-toggle {
+  right: auto;
+  left: 2rem;
+}
+
+[dir="rtl"] .design-nav {
+  right: auto;
+  left: -320px;
+  transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 5px 0 30px rgba(0,0,0,0.3);
+}
+
+[dir="rtl"] .design-nav.open {
+  right: auto;
+  left: 0;
+}
+
+[dir="rtl"] .design-nav a::after {
+  right: auto;
+  left: 0;
+}
+
+[dir="rtl"] .design-nav a:hover,
+[dir="rtl"] .design-nav a.active {
+  padding-left: 0;
+  padding-right: 0.5rem;
+}
+
+[dir="rtl"] .design-indicator {
+  left: auto;
+  right: 2rem;
+}
+
+[dir="rtl"] .lang-toggle {
+  right: auto;
+  left: 1.5rem;
+}
+
+[dir="rtl"] .countdown-grid {
+  direction: ltr;
+}
+
+/* Design 6 (Editorial Chic) — flip left-aligned elements */
+[dir="rtl"] [data-theme="design6"] .hero {
+  text-align: right;
+}
+
+[dir="rtl"] [data-theme="design6"] .hero-names {
+  justify-content: flex-start;
+}
+
+[dir="rtl"] [data-theme="design6"] .section-title {
+  text-align: right;
+}
+
+[dir="rtl"] [data-theme="design6"] .section-title::after {
+  left: auto;
+  right: 0;
+}
+
+[dir="rtl"] [data-theme="design6"] .story-content {
+  text-align: right;
+}
+
+[dir="rtl"] [data-theme="design6"] .detail-card {
+  text-align: right;
+}
+
+/* ============================================================
+   RTL RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  [dir="rtl"] .nav-toggle {
+    left: 1.5rem;
+  }
+
+  [dir="rtl"] .design-indicator {
+    right: 1.5rem;
+  }
+
+  [dir="rtl"] .lang-toggle {
+    left: 1rem;
+  }
+}
 
 .nav-toggle {
   position: fixed;
@@ -1564,7 +1823,138 @@ body:not([data-theme="design4"]):not([data-theme="design6"]):not([data-theme="de
 }
 
 /* ============================================================
-   ANIMATIONS — FALLING PETALS (Design 2)
+   THEME 11 — GOLDEN PETALS
+   Natural warm hues, Arabic calligraphy names, golden petals
+   ============================================================ */
+[data-theme="design11"] {
+  --bg: #FBF7F1;
+  --text: #4A3728;
+  --gold: #C8A84E;
+  --gold-light: #E0CFA0;
+  --card-bg: #FFFDFA;
+  --accent: #A0782C;
+  --petal-primary: #F2E2C4;
+  --petal-secondary: #E8CFA0;
+  --petal-alt-primary: #FAF0E0;
+  --petal-alt-secondary: #DDC090;
+  background-color: var(--bg);
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  color: var(--text);
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+}
+
+[data-theme="design11"] .design-indicator {
+  background: var(--gold-light);
+  color: var(--text);
+}
+
+/* Arabic calligraphy for names — Amir Moshref Thuluth */
+[data-theme="design11"] .hero-names {
+  font-family: 'amoshref-thulth', 'Aref Ruqaa', 'Amiri', serif;
+  font-size: 5.5rem;
+  font-weight: 400;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+}
+
+html[lang="ar"] [data-theme="design11"] .hero-names {
+  font-family: 'amoshref-thulth', 'Aref Ruqaa', 'Amiri', serif;
+  font-size: 5.5rem;
+}
+
+[data-theme="design11"] .name-ampersand {
+  color: var(--gold);
+  font-size: 0.6em;
+  font-family: 'amoshref-thulth', 'Aref Ruqaa', 'Amiri', serif;
+  font-style: normal;
+}
+
+[data-theme="design11"] .hero-pre,
+[data-theme="design11"] .hero-invite {
+  color: var(--text);
+  opacity: 0.65;
+  letter-spacing: 0.08em;
+}
+
+[data-theme="design11"] .date-day {
+  font-family: 'amoshref-thulth', 'Aref Ruqaa', 'Amiri', serif;
+  font-size: 5rem;
+  color: var(--gold);
+}
+
+[data-theme="design11"] .date-month, [data-theme="design11"] .date-year {
+  font-size: 1.5rem;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+[data-theme="design11"] .hero-ornament {
+  background: linear-gradient(90deg, transparent, var(--gold-light), var(--gold), var(--gold-light), transparent);
+  height: 1px;
+  width: 200px;
+}
+
+[data-theme="design11"] .section-title {
+  font-family: 'amoshref-thulth', 'Aref Ruqaa', 'Amiri', serif;
+  font-size: 2.5rem;
+  color: var(--accent);
+  font-weight: 400;
+}
+
+[data-theme="design11"] .section-label {
+  color: var(--gold);
+}
+
+[data-theme="design11"] .countdown-number {
+  font-family: 'amoshref-thulth', 'Aref Ruqaa', 'Amiri', serif;
+  font-size: 3rem;
+  color: var(--gold);
+}
+
+[data-theme="design11"] .detail-card {
+  background: var(--card-bg);
+  border: 1px solid var(--gold-light);
+  box-shadow: 0 2px 24px rgba(160,120,44,0.08);
+  border-radius: 4px;
+}
+
+[data-theme="design11"] .detail-card:hover {
+  box-shadow: 0 4px 30px rgba(160,120,44,0.15);
+}
+
+[data-theme="design11"] .gallery-placeholder {
+  background: var(--card-bg);
+  border: 1px dashed var(--gold-light);
+}
+
+[data-theme="design11"] .rsvp-button {
+  background: var(--gold);
+  color: #fff;
+  border: none;
+}
+
+[data-theme="design11"] .rsvp-button:hover {
+  background: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(160,120,44,0.3);
+}
+
+/* Theme 11 petals — warm golden/amber tones */
+[data-theme="design11"] .petal {
+  background: radial-gradient(ellipse at 30% 30%, #F5E6CC, #D4B87A);
+  border-radius: 50% 0 50% 0;
+}
+
+[data-theme="design11"] .petal:nth-child(odd) {
+  background: radial-gradient(ellipse at 30% 30%, #FAF0E0, #E0C898);
+  border-radius: 0 50% 0 50%;
+}
+
+/* ============================================================
+   ANIMATIONS — FALLING PETALS (Design 2 & Design 11)
    ============================================================ */
 .petals-container {
   position: fixed;
@@ -1575,7 +1965,8 @@ body:not([data-theme="design4"]):not([data-theme="design6"]):not([data-theme="de
   display: none;
 }
 
-[data-theme="design2"] .petals-container { display: block; }
+[data-theme="design2"] .petals-container,
+[data-theme="design11"] .petals-container { display: block; }
 
 .petal {
   position: absolute;
@@ -1647,6 +2038,7 @@ body:not([data-theme="design4"]):not([data-theme="design6"]):not([data-theme="de
   [data-theme="design6"] .hero-names { font-size: 3rem !important; }
   [data-theme="design8"] .hero-names { font-size: 3.5rem !important; }
   [data-theme="design10"] .hero-names { font-size: 3.5rem !important; }
+  [data-theme="design11"] .hero-names { font-size: 3.2rem !important; }
 
   .date-day { font-size: 3.5rem !important; }
   [data-theme="design6"] .date-day { font-size: 4.5rem !important; }
@@ -1654,6 +2046,9 @@ body:not([data-theme="design4"]):not([data-theme="design6"]):not([data-theme="de
   .countdown-grid { gap: 1rem; }
   .countdown-number { font-size: 2rem !important; }
   .countdown-item { min-width: 60px; }
+
+  .timeline { padding-left: 1.5rem; }
+  [dir="rtl"] .timeline { padding-left: 0; padding-right: 1.5rem; }
 
   .details-grid { grid-template-columns: 1fr; }
   .gallery-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1668,7 +2063,8 @@ body:not([data-theme="design4"]):not([data-theme="design6"]):not([data-theme="de
 @media (max-width: 480px) {
   .hero-names { font-size: 2rem !important; gap: 0.5rem; }
   [data-theme="1"] .hero-names,
-  [data-theme="2"] .hero-names { font-size: 2.5rem !important; }
+  [data-theme="2"] .hero-names,
+  [data-theme="design11"] .hero-names { font-size: 2.5rem !important; }
 
   .date-day { font-size: 2.8rem !important; }
 
