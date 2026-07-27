@@ -214,7 +214,7 @@
   function setTheme(design) {
     const num = design.replace('design', '');
     body.setAttribute('data-theme', design);
-    designNumber.textContent = num + ' / 10';
+    designNumber.textContent = num + ' / ' + TOTAL_DESIGNS;
     designName.textContent = t('designLabel.' + design) || '';
 
     navLinks.forEach(function (link) {
@@ -232,10 +232,10 @@
   }
 
   function handleHashChange() {
-    var hash = window.location.hash.replace('#', '') || 'design1';
+    var hash = window.location.hash.replace('#', '') || 'design11';
     var match = hash.match(/^design(\d+)$/);
     if (!match || parseInt(match[1], 10) < 1 || parseInt(match[1], 10) > TOTAL_DESIGNS) {
-      hash = 'design1';
+      hash = 'design11';
       window.location.hash = hash;
     }
     setTheme(hash);
@@ -402,6 +402,11 @@
   });
 
   // ─── INIT ─────────────────────────────────────────────────
+  // Dev mode: show design selector only when ?dev=true
+  if (window.location.search.indexOf('dev=true') !== -1) {
+    document.body.classList.add('dev-mode');
+  }
+
   // Load saved language preference
   var savedLang = null;
   try {

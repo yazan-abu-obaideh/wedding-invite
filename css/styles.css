@@ -2088,6 +2088,14 @@ html[lang="ar"] [data-theme="design11"] .hero-names {
 }
 
 /* ============================================================
+   DEV MODE — hide design selector unless ?dev=true
+   ============================================================ */
+body:not(.dev-mode) .nav-toggle,
+body:not(.dev-mode) .design-nav,
+body:not(.dev-mode) .nav-overlay,
+body:not(.dev-mode) .design-indicator { display: none !important; }
+
+/* ============================================================
    PRINT STYLES
    ============================================================ */
 @media print {
