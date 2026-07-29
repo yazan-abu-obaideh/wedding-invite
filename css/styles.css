@@ -1866,7 +1866,7 @@ html[lang="ar"] [data-theme="design11"] .hero-names {
 }
 
 [data-theme="design11"] .name-ampersand {
-  color: var(--gold);
+  color: var(--accent);
   font-size: 0.6em;
   font-family: 'amoshref-thulth', 'Aref Ruqaa', 'Amiri', serif;
   font-style: normal;
