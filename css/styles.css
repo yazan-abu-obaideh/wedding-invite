@@ -2048,7 +2048,9 @@ html[lang="ar"] [data-theme="design11"] .hero-names {
   .countdown-item { min-width: 60px; }
 
   .timeline { padding-left: 1.5rem; }
+  .timeline-marker { left: -1.5rem; transform: translateX(-4.5px); }
   [dir="rtl"] .timeline { padding-left: 0; padding-right: 1.5rem; }
+  [dir="rtl"] .timeline-marker { left: auto; right: -1.5rem; transform: translateX(4.5px); }
 
   .details-grid { grid-template-columns: 1fr; }
   .gallery-grid { grid-template-columns: repeat(2, 1fr); }
