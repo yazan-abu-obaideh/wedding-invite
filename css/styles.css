@@ -522,16 +522,6 @@ html[lang="en"] [data-theme="design11"] .hero-pre {
   line-height: 1.4;
 }
 
-[data-theme="design11"] .hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: url('../illustration-upscaled.png') center/contain no-repeat;
-  opacity: 0.08;
-  pointer-events: none;
-  z-index: -1;
-}
-
 [data-theme="design11"] .name-ampersand {
   color: var(--accent);
   font-size: 0.6em;
@@ -562,7 +552,7 @@ html[lang="en"] [data-theme="design11"] .hero-pre {
   content: '';
   position: absolute;
   inset: 0;
-  background: url('../illustration.jpg') center/contain no-repeat;
+  background: url('../illustration-upscaled.png') center/cover no-repeat;
   opacity: 0.15;
   pointer-events: none;
   z-index: 0;
