@@ -71,7 +71,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 2.5rem;
   flex-wrap: wrap;
   margin-bottom: 1.5rem;
 }
@@ -321,7 +321,11 @@ section {
   color: var(--accent);
   line-height: 1.6;
   letter-spacing: 0.04em;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
 /* ----- Quran Verse (Arabic only, above hero-pre) ----- */
@@ -440,6 +444,8 @@ html[lang="en"] [data-theme="design11"] .parents-names {
   font-family: 'Playfair Display', 'Cormorant Garamond', serif;
   font-size: 2rem;
   letter-spacing: 0.06em;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 html[lang="en"] [data-theme="design11"] .parent-and {
@@ -447,13 +453,15 @@ html[lang="en"] [data-theme="design11"] .parent-and {
   font-style: italic;
 }
 
-[data-theme="design11"] .parent-name {
-  display: block;
-}
 
 html[lang="en"] [data-theme="design11"] .name-ampersand {
   font-family: 'Playfair Display', serif;
   font-style: italic;
+}
+
+html[lang="en"] [data-theme="design11"] .date-day-name {
+  font-family: 'Playfair Display', 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
 }
 
 html[lang="en"] [data-theme="design11"] .date-day {
@@ -520,6 +528,8 @@ html[lang="en"] [data-theme="design11"] .hero-pre {
   color: var(--accent);
   letter-spacing: 0.06em;
   line-height: 1.4;
+  margin-top: 1rem;
+  gap: 3.5rem;
 }
 
 [data-theme="design11"] .name-ampersand {
@@ -534,6 +544,13 @@ html[lang="en"] [data-theme="design11"] .hero-pre {
   color: var(--text);
   opacity: 0.65;
   letter-spacing: 0.08em;
+}
+
+[data-theme="design11"] .date-day-name {
+  font-family: 'amoshref-thulth', 'Aref Ruqaa', 'Amiri', serif;
+  font-size: 2rem;
+  color: var(--accent);
+  margin: 0 0 0.25rem;
 }
 
 [data-theme="design11"] .date-day {
@@ -666,9 +683,9 @@ html[lang="en"] [data-theme="design11"] .hero-pre {
 @media (max-width: 768px) {
   .wrapper { padding: 1.5rem; }
 
-  .hero-names { font-size: 2.5rem !important; gap: 0.8rem; }
-  [data-theme="design11"] .hero-names { font-size: 3.2rem !important; }
-  html[lang="ar"] [data-theme="design11"] .hero-names { font-size: 3.8rem !important; }
+  .hero-names { font-size: 2.5rem !important; gap: 1.5rem; }
+  [data-theme="design11"] .hero-names { font-size: 3.2rem !important; gap: 2rem; }
+  html[lang="ar"] [data-theme="design11"] .hero-names { font-size: 3.8rem !important; gap: 2rem; }
 
   .verse-text { font-size: 2.2rem; }
   .parents-names { font-size: 2rem; }
@@ -697,9 +714,9 @@ html[lang="en"] [data-theme="design11"] .hero-pre {
 }
 
 @media (max-width: 480px) {
-  .hero-names { font-size: 2rem !important; gap: 0.5rem; }
-  [data-theme="design11"] .hero-names { font-size: 2.5rem !important; }
-  html[lang="ar"] [data-theme="design11"] .hero-names { font-size: 3rem !important; }
+  .hero-names { font-size: 2rem !important; gap: 1.2rem; }
+  [data-theme="design11"] .hero-names { font-size: 2.5rem !important; gap: 1.5rem; }
+  html[lang="ar"] [data-theme="design11"] .hero-names { font-size: 3rem !important; gap: 1.5rem; }
 
   .verse-text { font-size: 1.8rem; }
   .parents-names { font-size: 1.5rem; }
