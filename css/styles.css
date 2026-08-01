@@ -447,7 +447,7 @@ html[lang="en"] [data-theme="design11"] .parent-and {
   font-style: italic;
 }
 
-html[lang="en"] [data-theme="design11"] .parent-name {
+[data-theme="design11"] .parent-name {
   display: block;
 }
 
