@@ -432,7 +432,13 @@ html[lang="en"] [data-theme="design11"] .hero-names {
   font-family: 'Playfair Display', 'Cormorant Garamond', serif;
   font-size: 5rem;
   font-weight: 400;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
+}
+
+html[lang="en"] [data-theme="design11"] .parents-names {
+  font-family: 'Playfair Display', 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  letter-spacing: 0.06em;
 }
 
 html[lang="en"] [data-theme="design11"] .name-ampersand {
@@ -443,16 +449,22 @@ html[lang="en"] [data-theme="design11"] .name-ampersand {
 html[lang="en"] [data-theme="design11"] .date-day {
   font-family: 'Playfair Display', serif;
   font-size: 5rem;
+  letter-spacing: 0.04em;
 }
 
 html[lang="en"] [data-theme="design11"] .section-title {
   font-family: 'Playfair Display', 'Cormorant Garamond', serif;
   font-size: 2.2rem;
   font-weight: 400;
+  letter-spacing: 0.1em;
 }
 
 html[lang="en"] [data-theme="design11"] .countdown-number {
   font-family: 'Playfair Display', 'Cormorant Garamond', serif;
+}
+
+html[lang="en"] [data-theme="design11"] .hero-pre {
+  letter-spacing: 0.04em;
 }
 
 /* ============================================================
