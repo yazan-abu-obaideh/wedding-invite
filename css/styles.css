@@ -544,6 +544,16 @@ html[lang="en"] [data-theme="design11"] .hero-pre {
   font-weight: 500;
 }
 
+[data-theme="design11"] .hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../illustration.jpg') center/contain no-repeat;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 0;
+}
+
 [data-theme="design11"] .hero-ornament {
   background: linear-gradient(90deg, transparent, var(--gold-light), var(--gold), var(--gold-light), transparent);
   height: 1px;
@@ -658,6 +668,7 @@ html[lang="en"] [data-theme="design11"] .hero-pre {
 
   .verse-text { font-size: 2.2rem; }
   .parents-names { font-size: 2rem; }
+  html[lang="en"] [data-theme="design11"] .parents-names { font-size: 1.6rem; }
   html[lang="en"] .parent-name { display: block; }
 
   .date-day { font-size: 3.5rem !important; }
@@ -689,6 +700,7 @@ html[lang="en"] [data-theme="design11"] .hero-pre {
 
   .verse-text { font-size: 1.8rem; }
   .parents-names { font-size: 1.5rem; }
+  html[lang="en"] [data-theme="design11"] .parents-names { font-size: 1.2rem; }
   html[lang="en"] .parent-name { display: block; }
 
   .date-day { font-size: 2.8rem !important; }
