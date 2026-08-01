@@ -442,6 +442,11 @@ html[lang="en"] [data-theme="design11"] .parents-names {
   letter-spacing: 0.06em;
 }
 
+html[lang="en"] [data-theme="design11"] .parent-and {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+}
+
 html[lang="en"] [data-theme="design11"] .name-ampersand {
   font-family: 'Playfair Display', serif;
   font-style: italic;
@@ -653,6 +658,7 @@ html[lang="en"] [data-theme="design11"] .hero-pre {
 
   .verse-text { font-size: 2.2rem; }
   .parents-names { font-size: 2rem; }
+  html[lang="en"] .parent-name { display: block; }
 
   .date-day { font-size: 3.5rem !important; }
 
@@ -683,6 +689,7 @@ html[lang="en"] [data-theme="design11"] .hero-pre {
 
   .verse-text { font-size: 1.8rem; }
   .parents-names { font-size: 1.5rem; }
+  html[lang="en"] .parent-name { display: block; }
 
   .date-day { font-size: 2.8rem !important; }
 
