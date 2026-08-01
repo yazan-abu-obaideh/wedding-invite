@@ -314,6 +314,15 @@ section {
   transform: translateY(-2px);
 }
 
+/* ----- Parents Names ----- */
+.parents-names {
+  font-family: 'amoshref-thulth', 'Aref Ruqaa', 'Amiri', serif;
+  font-size: 2.5rem;
+  color: var(--accent);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
 /* ----- Quran Verse (Arabic only, above hero-pre) ----- */
 .verse-text {
   font-family: 'amoshref-thulth', 'Aref Ruqaa', 'Amiri', serif;
@@ -630,6 +639,7 @@ html[lang="en"] [data-theme="design11"] .countdown-number {
   html[lang="ar"] [data-theme="design11"] .hero-names { font-size: 3.8rem !important; }
 
   .verse-text { font-size: 2.2rem; }
+  .parents-names { font-size: 2rem; }
 
   .date-day { font-size: 3.5rem !important; }
 
@@ -659,6 +669,7 @@ html[lang="en"] [data-theme="design11"] .countdown-number {
   html[lang="ar"] [data-theme="design11"] .hero-names { font-size: 3rem !important; }
 
   .verse-text { font-size: 1.8rem; }
+  .parents-names { font-size: 1.5rem; }
 
   .date-day { font-size: 2.8rem !important; }
 
