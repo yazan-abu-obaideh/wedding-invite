@@ -408,19 +408,42 @@ section {
 }
 
 /* ============================================================
-   ARABIC FONT OVERRIDES
+   LANGUAGE-SPECIFIC OVERRIDES
    ============================================================ */
 html[lang="ar"] body {
   font-family: 'Amiri', 'Tajawal', 'Cormorant Garamond', serif;
 }
 
-html[lang="ar"] .hero-names {
+html[lang="ar"] .lang-toggle {
   font-family: 'Amiri', 'Tajawal', serif;
-  font-size: 3.5rem;
 }
 
-html[lang="ar"] .section-title {
-  font-family: 'Amiri', 'Tajawal', serif;
+/* English: swap Arabic calligraphy → elegant Latin serif, balance sizes */
+html[lang="en"] [data-theme="design11"] .hero-names {
+  font-family: 'Playfair Display', 'Cormorant Garamond', serif;
+  font-size: 5rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+html[lang="en"] [data-theme="design11"] .name-ampersand {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+}
+
+html[lang="en"] [data-theme="design11"] .date-day {
+  font-family: 'Playfair Display', serif;
+  font-size: 5rem;
+}
+
+html[lang="en"] [data-theme="design11"] .section-title {
+  font-family: 'Playfair Display', 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  font-weight: 400;
+}
+
+html[lang="en"] [data-theme="design11"] .countdown-number {
+  font-family: 'Playfair Display', 'Cormorant Garamond', serif;
 }
 
 /* ============================================================
@@ -461,16 +484,11 @@ html[lang="ar"] .section-title {
 /* Arabic calligraphy for names — Amir Moshref Thuluth */
 [data-theme="design11"] .hero-names {
   font-family: 'amoshref-thulth', 'Aref Ruqaa', 'Amiri', serif;
-  font-size: 5.5rem;
+  font-size: 6rem;
   font-weight: 400;
   color: var(--accent);
   letter-spacing: 0.02em;
   line-height: 1.4;
-}
-
-html[lang="ar"] [data-theme="design11"] .hero-names {
-  font-family: 'amoshref-thulth', 'Aref Ruqaa', 'Amiri', serif;
-  font-size: 5.5rem;
 }
 
 [data-theme="design11"] .name-ampersand {
@@ -609,6 +627,9 @@ html[lang="ar"] [data-theme="design11"] .hero-names {
 
   .hero-names { font-size: 2.5rem !important; gap: 0.8rem; }
   [data-theme="design11"] .hero-names { font-size: 3.2rem !important; }
+  html[lang="ar"] [data-theme="design11"] .hero-names { font-size: 3.8rem !important; }
+
+  .verse-text { font-size: 2.2rem; }
 
   .date-day { font-size: 3.5rem !important; }
 
@@ -635,6 +656,9 @@ html[lang="ar"] [data-theme="design11"] .hero-names {
 @media (max-width: 480px) {
   .hero-names { font-size: 2rem !important; gap: 0.5rem; }
   [data-theme="design11"] .hero-names { font-size: 2.5rem !important; }
+  html[lang="ar"] [data-theme="design11"] .hero-names { font-size: 3rem !important; }
+
+  .verse-text { font-size: 1.8rem; }
 
   .date-day { font-size: 2.8rem !important; }
 
