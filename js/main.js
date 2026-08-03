@@ -61,7 +61,7 @@
       'hero.after2': 'ونوماً هنيئاً لأطفالكم',
       'hero.invite': '',
       'hero.day': 'يوم السبت',
-      'hero.month': 'أغسطس',
+      'hero.month': 'آب',
       'countdown.label': 'العد التنازلي',
       'countdown.days': 'يوم',
       'countdown.days.plural': 'أيام',
@@ -79,11 +79,11 @@
       'timeline.dinner.title': 'العشاء',
       'timeline.dinner.desc': 'وليمة واحتفال',
       'timeline.entrance.time': '10:30 مساءً',
-      'timeline.entrance.title': 'الدخلة الثانية',
+      'timeline.entrance.title': 'الزفة الثانية',
       'location.title': 'الموقع',
       'location.link': 'فندق الماريوت عمّان ↖',
       'footer.names': 'يزن و آية',
-      'footer.date': '22 أغسطس 2026',
+      'footer.date': '22 آب 2026',
     }
   };
 
@@ -124,7 +124,7 @@
 
     // Update document title
     document.title = lang === 'ar'
-      ? 'يزن و آية — 22 أغسطس 2026'
+      ? 'يزن و آية — 22 آب 2026'
       : 'Yazan and Ayah — August 22nd, 2026';
 
     // Persist preference
