@@ -74,6 +74,11 @@ section {
   gap: 1rem;
   flex-wrap: wrap;
   margin-bottom: 1.5rem;
+  padding-inline: 15%;
+}
+
+html[lang="en"] .hero-names {
+  padding-inline: 10%;
 }
 
 .name-yazan,
