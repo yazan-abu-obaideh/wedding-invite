@@ -461,6 +461,7 @@ html[lang="en"] [data-theme="design11"] .hero-names {
   font-size: 5rem;
   font-weight: 400;
   letter-spacing: 0.08em;
+  flex-wrap: nowrap;
 }
 
 html[lang="en"] [data-theme="design11"] .parents-names {
@@ -709,6 +710,7 @@ html[lang="en"] [data-theme="design11"] .hero-pre {
   .hero-names { font-size: 2.5rem !important; gap: 1.5rem; }
   [data-theme="design11"] .hero-names { font-size: 3.2rem !important; gap: 2rem; }
   html[lang="ar"] [data-theme="design11"] .hero-names { font-size: 3.8rem !important; gap: 2rem; }
+  html[lang="en"] [data-theme="design11"] .hero-names { font-size: 2.8rem !important; gap: 1rem; }
 
   .verse-text { font-size: 2.2rem; }
   .parents-names { font-size: 2rem; }
@@ -740,6 +742,7 @@ html[lang="en"] [data-theme="design11"] .hero-pre {
   .hero-names { font-size: 2rem !important; gap: 1.2rem; }
   [data-theme="design11"] .hero-names { font-size: 2.5rem !important; gap: 1.5rem; }
   html[lang="ar"] [data-theme="design11"] .hero-names { font-size: 3rem !important; gap: 1.5rem; }
+  html[lang="en"] [data-theme="design11"] .hero-names { font-size: 2rem !important; gap: 0.6rem; }
 
   .verse-text { font-size: 1.8rem; }
   .parents-names { font-size: 1.5rem; }
