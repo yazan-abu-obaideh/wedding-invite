@@ -246,4 +246,18 @@
 
   buildPetals();
 
+  // ─── BACKGROUND MUSIC ─────────────────────────────────────
+  var bgMusic = document.querySelector('audio');
+  if (bgMusic) {
+    bgMusic.play().catch(function () {}); // attempt muted playback
+    function unmuteMusic() {
+      bgMusic.muted = false;
+      bgMusic.play().catch(function () {});
+    }
+    var events = ['click', 'touchstart', 'scroll', 'keydown'];
+    for (var i = 0; i < events.length; i++) {
+      window.addEventListener(events[i], unmuteMusic, { once: true, passive: true });
+    }
+  }
+
 })();
