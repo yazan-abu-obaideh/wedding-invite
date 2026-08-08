@@ -248,6 +248,8 @@
 
   // ─── BACKGROUND MUSIC ─────────────────────────────────────
   var bgMusic = document.querySelector('audio');
+  var scrollIndicator = document.querySelector('.scroll-indicator');
+
   if (bgMusic) {
     bgMusic.play().catch(function () {}); // attempt muted playback
     function unmuteMusic() {
@@ -258,6 +260,13 @@
     for (var i = 0; i < events.length; i++) {
       window.addEventListener(events[i], unmuteMusic, { once: true, passive: true });
     }
+  }
+
+  function hideScrollIndicator() {
+    if (scrollIndicator) scrollIndicator.classList.add('hidden');
+  }
+  if (scrollIndicator) {
+    window.addEventListener('scroll', hideScrollIndicator, { once: true, passive: true });
   }
 
 })();
